@@ -1,0 +1,1568 @@
+<ApiMonitor>
+  <Include Filename="Headers\windows.h.xml" />
+  <Include Filename="NIDAQ\nidaqcns.h.xml" />
+
+  <Module Name="nidaq32.dll" CallingConvention="STDCALL">
+
+    <Api Name="AI_Change_Parameter">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="UINT32" Name="paramID" />
+      <Param Type="UINT32" Name="paramValue" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Check">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16*" Name="status" />
+      <Param Type="INT16*" Name="value" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Clear">
+      <Param Type="INT16" Name="slot" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Configure">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="inputMode" />
+      <Param Type="INT16" Name="inputRange" />
+      <Param Type="INT16" Name="polarity" />
+      <Param Type="INT16" Name="driveAIS" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Mux_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numMuxBrds" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Read">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="INT16*" Name="value" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Read32">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="INT32*" Name="value" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Setup">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_VRead">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="double*" Name="volts" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_VScale">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="double" Name="gainAdjust" />
+      <Param Type="double" Name="offset" />
+      <Param Type="INT16" Name="reading" />
+      <Param Type="double*" Name="voltage" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Align_DMA_Buffer">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="resource" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="UINT32" Name="bufSize" />
+      <Param Type="UINT32*" Name="alignIndex" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AO_Calibrate">
+      <Param Type="INT16" Name="board" />
+      <Param Type="INT16" Name="operation" />
+      <Param Type="INT16" Name="EEPROMloc" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AO_Configure">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="outputPolarity" />
+      <Param Type="INT16" Name="IntOrExtRef" />
+      <Param Type="double" Name="refVoltage" />
+      <Param Type="INT16" Name="updateMode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AO_Change_Parameter">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="UINT32" Name="paramID" />
+      <Param Type="UINT32" Name="paramValue" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AO_Update">
+      <Param Type="INT16" Name="slot" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AO_VWrite">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="double" Name="voltage" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AO_Write">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="value" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Calibrate_E_Series">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="calOp" />
+      <Param Type="UINT32" Name="setOfCalConst" />
+      <Param Type="double" Name="calRefVolts" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Calibrate_59xx">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="operation" />
+      <Param Type="double" Name="refVoltage" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Calibrate_DSA">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="operation" />
+      <Param Type="double" Name="refVoltage" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Config_Alarm_Deadband">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="mode" />
+      <Param Type="char*" Name="chanStr" />
+      <Param Type="double" Name="trigLvl" />
+      <Param Type="double" Name="deadbandWidth" />
+      <Param Type="HWND" Name="handle" />
+      <Param Type="INT16" Name="alarmOnMsg" />
+      <Param Type="INT16" Name="alarmOffMsg" />
+      <Param Type="UINT32" Name="callbackAddr" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Config_ATrig_Event_Message">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="mode" />
+      <Param Type="char*" Name="chanStr" />
+      <Param Type="double" Name="trigLvl" />
+      <Param Type="double" Name="winSize" />
+      <Param Type="INT16" Name="trigSlope" />
+      <Param Type="UINT32" Name="skipCnt" />
+      <Param Type="UINT32" Name="preTrigScans" />
+      <Param Type="UINT32" Name="postTrigScans" />
+      <Param Type="HWND" Name="handle" />
+      <Param Type="INT16" Name="msg" />
+      <Param Type="UINT32" Name="callBackAddr" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Config_DAQ_Event_Message">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="mode" />
+      <Param Type="char*" Name="chanStr" />
+      <Param Type="INT16" Name="DAQEvent" />
+      <Param Type="INT32" Name="trigVal0" />
+      <Param Type="INT32" Name="trigVal1" />
+      <Param Type="UINT32" Name="skipCnt" />
+      <Param Type="UINT32" Name="preTrigScans" />
+      <Param Type="UINT32" Name="postTrigScans" />
+      <Param Type="HWND" Name="handle" />
+      <Param Type="INT16" Name="msg" />
+      <Param Type="UINT32" Name="callBackAddr" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Configure_HW_Analog_Trigger">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="onOrOff" />
+      <Param Type="INT32" Name="lowValue" />
+      <Param Type="INT32" Name="highValue" />
+      <Param Type="UINT32" Name="mode" />
+      <Param Type="UINT32" Name="trigSource" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Param Type="INT16" Name="edgeMode" />
+      <Param Type="INT16" Name="gateMode" />
+      <Param Type="INT16" Name="outType" />
+      <Param Type="INT16" Name="outPolarity" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_EvCount">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Param Type="INT16" Name="timebase" />
+      <Param Type="INT16" Name="cont" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_EvRead">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Param Type="INT16*" Name="overflow" />
+      <Param Type="UINT16*" Name="counts" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_FOUT_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="FOUT" />
+      <Param Type="INT16" Name="mode" />
+      <Param Type="INT16" Name="timebase" />
+      <Param Type="INT16" Name="division" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Period">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Param Type="INT16" Name="timebase" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Pulse">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Param Type="INT16" Name="timebase" />
+      <Param Type="UINT16" Name="delay" />
+      <Param Type="UINT16" Name="pulseWidth" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Rate">
+      <Param Type="double" Name="freq" />
+      <Param Type="double" Name="duty" />
+      <Param Type="INT16*" Name="timebase" />
+      <Param Type="UINT16*" Name="period1" />
+      <Param Type="UINT16*" Name="period2" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Reset">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Param Type="INT16" Name="outState" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Restart">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Simul_Op">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numCtrs" />
+      <Param Type="INT16*" Name="ctrList" />
+      <Param Type="INT16" Name="mode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Square">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Param Type="INT16" Name="timebase" />
+      <Param Type="UINT16" Name="period1" />
+      <Param Type="UINT16" Name="period2" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_State">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Param Type="INT16*" Name="outState" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CTR_Stop">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="ctr" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_Check">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16*" Name="progress" />
+      <Param Type="UINT32*" Name="retrieved" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_Clear">
+      <Param Type="INT16" Name="slot" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="startTrig" />
+      <Param Type="INT16" Name="extConv" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_DB_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="dbMode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_DB_HalfReady">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16*" Name="halfReady" />
+      <Param Type="INT16*" Name="status" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_DB_Transfer">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16*" Name="hbuffer" />
+      <Param Type="UINT32*" Name="ptsTfr" />
+      <Param Type="INT16*" Name="status" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_Monitor">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="seq" />
+      <Param Type="UINT32" Name="monitorCnt" />
+      <Param Type="INT16*" Name="monitorBuf" />
+      <Param Type="UINT32*" Name="newestIndex" />
+      <Param Type="INT16*" Name="status" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_Op">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="double" Name="sampleRate" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_Rate">
+      <Param Type="double" Name="rate" />
+      <Param Type="INT16" Name="units" />
+      <Param Type="INT16*" Name="timebase" />
+      <Param Type="UINT16*" Name="sampleInt" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_Start">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="INT16" Name="timebase" />
+      <Param Type="UINT16" Name="sampInt" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_StopTrigger_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="preTrig" />
+      <Param Type="UINT32" Name="preTrigCnt" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_to_Disk">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="char*" Name="fileName" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="double" Name="sampleRate" />
+      <Param Type="INT16" Name="concat" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_VScale">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="double" Name="gainAdjust" />
+      <Param Type="double" Name="offset" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="INT16*" Name="binArray" />
+      <Param Type="double*" Name="voltArray" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Block_Check">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="UINT32*" Name="remaining" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Block_Clear">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Block_In">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Block_Out">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Block_PG_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16" Name="PGmode" />
+      <Param Type="INT16" Name="reqSource" />
+      <Param Type="INT16" Name="timebase" />
+      <Param Type="UINT16" Name="interval" />
+      <Param Type="INT16" Name="externalGate" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_DB_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16" Name="DBMode" />
+      <Param Type="INT16" Name="oldDataStop" />
+      <Param Type="INT16" Name="partialTransfer" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_DB_HalfReady">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16*" Name="halfReady" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_DB_Transfer">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16*" Name="halfBuffer" />
+      <Param Type="UINT32" Name="ptsTfr" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Grp_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16" Name="grpsize" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="direction" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Grp_Mode">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16" Name="sigType" />
+      <Param Type="INT16" Name="edge" />
+      <Param Type="INT16" Name="reqpol" />
+      <Param Type="INT16" Name="ackpol" />
+      <Param Type="INT16" Name="settleTime" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Grp_Status">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16*" Name="status" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_In_Grp">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16*" Name="grp_pat" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_In_Line">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="linenum" />
+      <Param Type="INT16*" Name="state" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Query_Optimizations_GFS">
+      <Param Type="INT16" Name="device" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_In_Port_GFS">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16*" Name="pattern" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_In_Port">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16*" Name="pattern" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Line_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="linenum" />
+      <Param Type="INT16" Name="direction" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Out_Grp">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16" Name="grp_pat" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Out_Line">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="linenum" />
+      <Param Type="INT16" Name="state" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Out_Port_GFS">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="pattern" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Out_Port">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="pattern" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Prt_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="latch_mode" />
+      <Param Type="INT16" Name="direction" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Prt_Status">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16*" Name="status" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_SCAN_Setup">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16" Name="numPorts" />
+      <Param Type="INT16*" Name="portList" />
+      <Param Type="INT16" Name="direction" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Get_DAQ_Device_Info">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="NIDAQSymbol" Name="infoType" />
+      <Param Type="UINT32*" Name="infoVal" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Get_NI_DAQ_Version">
+      <Param Type="UINT32*" Name="version" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="GPCTR_Config_Buffer">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="gpCounterNumber" />
+      <Param Type="UINT32" Name="reserved" />
+      <Param Type="UINT32" Name="numPoints" />
+      <Param Type="UINT32*" Name="buffer" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="GPCTR_Read_Buffer">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="gpCounterNumber" />
+      <Param Type="UINT32" Name="readMode" />
+      <Param Type="INT32" Name="readOffset" />
+      <Param Type="UINT32" Name="numPointsToRead" />
+      <Param Type="double" Name="timeOut" />
+      <Param Type="UINT32*" Name="numPointsRead" />
+      <Param Type="UINT32*" Name="buffer" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Line_Change_Attribute">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="lineNumber" />
+      <Param Type="UINT32" Name="attribID" />
+      <Param Type="UINT32" Name="attribValue" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="GPCTR_Control">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="gpCounterNumber" />
+      <Param Type="NIDAQSymbol" Name="action" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="GPCTR_Set_Application">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="NIDAQSymbol" Name="gpCounterNumber" />
+      <Param Type="NIDAQSymbol" Name="application" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="GPCTR_Watch">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="gpCounterNumber" />
+      <Param Type="UINT32" Name="watchID" />
+      <Param Type="UINT32*" Name="watchValue" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="ICTR_Read">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="counter" />
+      <Param Type="UINT16*" Name="cnt" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="ICTR_Reset">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="counter" />
+      <Param Type="INT16" Name="state" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="ICTR_Setup">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="counter" />
+      <Param Type="INT16" Name="mode" />
+      <Param Type="UINT16" Name="cnt" />
+      <Param Type="INT16" Name="binBCD" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Init_DA_Brds">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16*" Name="brdCode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Lab_ISCAN_Check">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16*" Name="status" />
+      <Param Type="UINT32*" Name="retrieved" />
+      <Param Type="INT16*" Name="finalScanOrder" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Lab_ISCAN_Op">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="double" Name="sampleRate" />
+      <Param Type="double" Name="scanRate" />
+      <Param Type="INT16*" Name="finalScanOrder" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Lab_ISCAN_Start">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="INT16" Name="timebase" />
+      <Param Type="UINT16" Name="sampleInt" />
+      <Param Type="UINT16" Name="scanInt" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Lab_ISCAN_to_Disk">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16" Name="gain" />
+      <Param Type="char*" Name="fileName" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="double" Name="sampleRate" />
+      <Param Type="double" Name="scanRate" />
+      <Param Type="INT16" Name="concat" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="LPM16_Calibrate">
+      <Param Type="INT16" Name="slot" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="MIO_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="dither" />
+      <Param Type="INT16" Name="useAMUX" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="RTSI_Clear">
+      <Param Type="INT16" Name="slot" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="RTSI_Clock">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="connect" />
+      <Param Type="INT16" Name="direction" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="RTSI_Conn">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="brdSignal" />
+      <Param Type="INT16" Name="busLine" />
+      <Param Type="INT16" Name="direction" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="RTSI_DisConn">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="brdSignal" />
+      <Param Type="INT16" Name="busLine" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SC_2040_Config">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="INT16" Name="sc2040Gain" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCAN_Demux">
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16" Name="muxMode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCAN_Op">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chans" />
+      <Param Type="INT16*" Name="gains" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="double" Name="sampleRate" />
+      <Param Type="double" Name="scanRate" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCAN_Sequence_Demux">
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVector" />
+      <Param Type="UINT32" Name="bufferSize" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="INT16" Name="samplesPerSequence" />
+      <Param Type="INT16*" Name="scanSequenceVector" />
+      <Param Type="UINT32*" Name="samplesPerChanVector" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCAN_Sequence_Retrieve">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="INT16" Name="samplesPerSequence" />
+      <Param Type="INT16*" Name="scanSequenceVector" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCAN_Sequence_Setup">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVector" />
+      <Param Type="INT16*" Name="gainVector" />
+      <Param Type="INT16*" Name="scanRateDivVector" />
+      <Param Type="INT16*" Name="scansPerSequence" />
+      <Param Type="INT16*" Name="samplesPerSequence" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCAN_Setup">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="num_chans" />
+      <Param Type="INT16*" Name="chans" />
+      <Param Type="INT16*" Name="gains" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCAN_Start">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="INT16" Name="tb1" />
+      <Param Type="UINT16" Name="si1" />
+      <Param Type="INT16" Name="tb2" />
+      <Param Type="UINT16" Name="si2" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCAN_to_Disk">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chans" />
+      <Param Type="INT16*" Name="gains" />
+      <Param Type="char*" Name="fileName" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="double" Name="sampleRate" />
+      <Param Type="double" Name="scanRate" />
+      <Param Type="INT16" Name="concat" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Calibrate_1200">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="INT16" Name="calOP" />
+      <Param Type="INT16" Name="saveNewCal" />
+      <Param Type="INT16" Name="EEPROMloc" />
+      <Param Type="INT16" Name="calRefChan" />
+      <Param Type="INT16" Name="grndRefChan" />
+      <Param Type="INT16" Name="DAC0chan" />
+      <Param Type="INT16" Name="DAC1chan" />
+      <Param Type="double" Name="calRefVolts" />
+      <Param Type="double" Name="gain" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_AO_Write">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="DACchannel" />
+      <Param Type="INT16" Name="opCode" />
+      <Param Type="INT16" Name="rangeCode" />
+      <Param Type="double" Name="voltCurrentData" />
+      <Param Type="INT16" Name="binaryDat" />
+      <Param Type="INT16*" Name="binaryWritten" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Cal_Constants">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="SCXIchannel" />
+      <Param Type="INT16" Name="operation" />
+      <Param Type="INT16" Name="calArea" />
+      <Param Type="INT16" Name="rangeCode" />
+      <Param Type="double" Name="SCXIgain" />
+      <Param Type="INT16" Name="DAQdevice" />
+      <Param Type="INT16" Name="DAQchannel" />
+      <Param Type="INT16" Name="DAQgain" />
+      <Param Type="double" Name="TBgain" />
+      <Param Type="double" Name="volt1" />
+      <Param Type="double" Name="binary1" />
+      <Param Type="double" Name="volt2" />
+      <Param Type="double" Name="binary2" />
+      <Param Type="double*" Name="binEEprom1" />
+      <Param Type="double*" Name="binEEprom2" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="InitChannelWizardStrainCal">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="moduleChan" />
+      <Param Type="INT16" Name="device" />
+      <Param Type="float" Name="loLim" />
+      <Param Type="float" Name="hiLim" />
+      <Param Type="double*" Name="moduleGain" />
+      <Param Type="INT16*" Name="DAQgain" />
+      <Param Type="INT16*" Name="DAQchan" />
+      <Param Type="float" Name="excitation" />
+      <Param Type="INT16" Name="connectionType" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="ChannelWizardSCXIStrainCal">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="moduleChan" />
+      <Param Type="INT16" Name="device" />
+      <Param Type="INT16" Name="DAQchan" />
+      <Param Type="double" Name="moduleGain" />
+      <Param Type="INT16" Name="DAQgain" />
+      <Param Type="BYTE" Name="engageShuntA" />
+      <Param Type="BYTE" Name="engageShuntB" />
+      <Param Type="double*" Name="voltage" />
+      <Param Type="double*" Name="pos_excitation" />
+      <Param Type="double*" Name="neg_excitation" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_1520_Transducer_Cal">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="moduleChan" />
+      <Param Type="double" Name="SCXIgain" />
+      <Param Type="INT16" Name="DAQdevice" />
+      <Param Type="INT16" Name="DAQchan" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Calibrate">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="moduleChan" />
+      <Param Type="INT16" Name="operation" />
+      <Param Type="INT16" Name="calArea" />
+      <Param Type="double" Name="SCXIgain" />
+      <Param Type="double" Name="inputRefVoltage" />
+      <Param Type="INT16" Name="DAQdevice" />
+      <Param Type="INT16" Name="DAQchan" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Strain_Null">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="moduleChan" />
+      <Param Type="INT16" Name="device" />
+      <Param Type="INT16" Name="DAQchan" />
+      <Param Type="float*" Name="imbalances" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Strain_Null_Ex">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="moduleChan" />
+      <Param Type="INT16" Name="device" />
+      <Param Type="INT16" Name="DAQchan" />
+      <Param Type="float*" Name="imbalances" />
+      <Param Type="float" Name="excitation" />
+      <Param Type="UINT32" Name="bridgeType" />
+      <Param Type="INT16*" Name="finePot" />
+      <Param Type="INT16*" Name="coarsePot" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Calibrate_Setup">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="calOp" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Change_Chan">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="chan" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Set_Potentiometer">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="UINT16" Name="value" />
+      <Param Type="BYTE" Name="pottype" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Set_Excitation">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="INT16" Name="excitationType" />
+      <Param Type="float" Name="excitation" />
+      <Param Type="float*" Name="actualExcitation" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Configure_Connection">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="INT16" Name="connectionType" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Configure_Filter">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="INT16" Name="filterMode" />
+      <Param Type="double" Name="freq" />
+      <Param Type="UINT16" Name="cutoffDivDown" />
+      <Param Type="UINT16" Name="outClkDivDown" />
+      <Param Type="double*" Name="actFreq" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Get_Chassis_Info">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16*" Name="chassisType" />
+      <Param Type="INT16*" Name="address" />
+      <Param Type="INT16*" Name="commMode" />
+      <Param Type="INT16*" Name="commPath" />
+      <Param Type="INT16*" Name="numSlots" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Get_Module_Info">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT32*" Name="modulePresent" />
+      <Param Type="INT16*" Name="opMode" />
+      <Param Type="INT16*" Name="DAQboard" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Get_State">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="UINT32*" Name="data" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Get_Status">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="wait" />
+      <Param Type="UINT32*" Name="data" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Load_Config">
+      <Param Type="INT16" Name="chassisID" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_MuxCtr_Setup">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="enable" />
+      <Param Type="INT16" Name="scanDiv" />
+      <Param Type="UINT16" Name="muxCtrVal" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Reset">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Scale">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="SCXIchannel" />
+      <Param Type="double" Name="SCXIgain" />
+      <Param Type="double" Name="TBgain" />
+      <Param Type="INT16" Name="DAQdevice" />
+      <Param Type="INT16" Name="DAQchannel" />
+      <Param Type="INT16" Name="DAQgain" />
+      <Param Type="UINT32" Name="numPoints" />
+      <Param Type="INT16*" Name="binArray" />
+      <Param Type="double*" Name="voltArray" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_SCAN_Setup">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="numModules" />
+      <Param Type="INT16*" Name="modules" />
+      <Param Type="INT16*" Name="numChans" />
+      <Param Type="INT16*" Name="startChans" />
+      <Param Type="INT16" Name="DAQboard" />
+      <Param Type="INT16" Name="modeFlag" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Set_Config">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="chassisType" />
+      <Param Type="INT16" Name="address" />
+      <Param Type="INT16" Name="commMode" />
+      <Param Type="INT16" Name="slotOrCOMM" />
+      <Param Type="INT16" Name="numSlots" />
+      <Param Type="INT32*" Name="moduleTypes" />
+      <Param Type="INT16*" Name="opModes" />
+      <Param Type="INT16*" Name="DAQboards" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Set_Gain">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="double" Name="gain" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Set_Input_Mode">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="inputMode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Set_State">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="UINT32" Name="data" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Single_Chan_Setup">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="INT16" Name="DAQboard" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Track_Hold_Control">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="state" />
+      <Param Type="INT16" Name="DAQboard" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Track_Hold_Setup">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="mode" />
+      <Param Type="INT16" Name="source" />
+      <Param Type="INT16" Name="send" />
+      <Param Type="INT16" Name="holdCnt" />
+      <Param Type="INT16" Name="DAQboard" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Select_Signal">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="NIDAQSymbol" Name="signal" />
+      <Param Type="NIDAQSymbol" Name="source" />
+      <Param Type="NIDAQSymbol" Name="sourceSpec" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Set_DAQ_Device_Info">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="infoType" />
+      <Param Type="UINT32" Name="infoVal" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Timeout_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT32" Name="numTicks" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Chan_Control">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="INT16" Name="operation" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Check">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="INT16*" Name="progress" />
+      <Param Type="UINT32*" Name="itersDone" />
+      <Param Type="UINT32*" Name="pointsDone" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_ClockRate">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="group" />
+      <Param Type="INT16" Name="whickClock" />
+      <Param Type="INT16" Name="timebase" />
+      <Param Type="UINT32" Name="updateInterval" />
+      <Param Type="INT16" Name="mode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_DB_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVect" />
+      <Param Type="INT16" Name="DBMode" />
+      <Param Type="INT16" Name="oldDataStop" />
+      <Param Type="INT16" Name="partialTransfer" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_DB_HalfReady">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVect" />
+      <Param Type="INT16*" Name="halfReady" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_DB_Transfer">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVect" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_from_Disk">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVect" />
+      <Param Type="char*" Name="fileName" />
+      <Param Type="UINT32" Name="startPts" />
+      <Param Type="UINT32" Name="endPts" />
+      <Param Type="UINT32" Name="iterations" />
+      <Param Type="double" Name="rate" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Group_Control">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="group" />
+      <Param Type="INT16" Name="operation" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Group_Setup">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVect" />
+      <Param Type="INT16" Name="group" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Load">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVect" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="UINT32" Name="iterations" />
+      <Param Type="INT16" Name="mode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Op">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="numChans" />
+      <Param Type="INT16*" Name="chanVect" />
+      <Param Type="INT16*" Name="buffer" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="UINT32" Name="iterations" />
+      <Param Type="double" Name="rate" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Rate">
+      <Param Type="double" Name="rate" />
+      <Param Type="INT16" Name="units" />
+      <Param Type="INT16*" Name="timebase" />
+      <Param Type="UINT32*" Name="updateInterval" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Scale">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="UINT32" Name="cnt" />
+      <Param Type="double" Name="gain" />
+      <Param Type="double*" Name="voltArray" />
+      <Param Type="INT16*" Name="binArray" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Read_Scan">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16*" Name="reading" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_VRead_Scan">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="double*" Name="reading" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_ModuleID_Read">
+      <Param Type="INT16" Name="scxiID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT32*" Name="id" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AO_VScale">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="chan" />
+      <Param Type="double" Name="voltage" />
+      <Param Type="INT16*" Name="value" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="GPCTR_Change_Parameter">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="NIDAQSymbol" Name="gpCounterNumber" />
+      <Param Type="NIDAQSymbol" Name="paramID" />
+      <Param Type="NIDAQSymbol" Name="paramValue" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Trigger_Config">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="grp" />
+      <Param Type="INT16" Name="startTrig" />
+      <Param Type="INT16" Name="startPol" />
+      <Param Type="INT16" Name="stopTrig" />
+      <Param Type="INT16" Name="stopPol" />
+      <Param Type="UINT32" Name="ptsAfterStopTrig" />
+      <Param Type="UINT32" Name="pattern" />
+      <Param Type="UINT32" Name="patternMask" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_Set_Threshold">
+      <Param Type="INT16" Name="chassisID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT16" Name="channel" />
+      <Param Type="double" Name="threshHold" />
+      <Param Type="double" Name="hysteresis" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="WFM_Set_Clock">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="group" />
+      <Param Type="UINT32" Name="whichClock" />
+      <Param Type="double" Name="desiredRate" />
+      <Param Type="UINT32" Name="units" />
+      <Param Type="double*" Name="actualRate" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DAQ_Set_Clock">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="UINT32" Name="whichClock" />
+      <Param Type="double" Name="desiredRate" />
+      <Param Type="UINT32" Name="units" />
+      <Param Type="double*" Name="actualRate" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Tio_Select_Signal">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="signal" />
+      <Param Type="UINT32" Name="source" />
+      <Param Type="UINT32" Name="sourceSpec" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Tio_Combine_Signals">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="internalLine" />
+      <Param Type="UINT32" Name="logicalExpression" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_In_Prt">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT32*" Name="pattern" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Out_Prt">
+      <Param Type="INT16" Name="slot" />
+      <Param Type="INT16" Name="port" />
+      <Param Type="INT32" Name="pattern" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="AI_Get_Overloaded_Channels">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="INT16*" Name="numChannels" />
+      <Param Type="INT16*" Name="channelList" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="Calibrate_TIO">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="UINT32" Name="operation" />
+      <Param Type="UINT32" Name="setOfCalConst" />
+      <Param Type="double" Name="referenceFreq" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Change_Message_Config">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="INT16" Name="operation" />
+      <Param Type="char*" Name="riseChanStr" />
+      <Param Type="char*" Name="fallChanStr" />
+      <Param Type="HWND" Name="handle" />
+      <Param Type="INT16" Name="msg" />
+      <Param Type="UINT32" Name="callBackAddr" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Change_Message_Control">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="INT16" Name="ctrlCode" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="DIG_Filter_Config">
+      <Param Type="INT16" Name="deviceNumber" />
+      <Param Type="INT16" Name="mode" />
+      <Param Type="char*" Name="chanStr" />
+      <Param Type="double" Name="interval" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="SCXI_TerminalBlockID_Read">
+      <Param Type="INT16" Name="scxiID" />
+      <Param Type="INT16" Name="moduleSlot" />
+      <Param Type="INT32*" Name="id" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="ni62xx_CalStart">
+      <Param Type="INT16" Name="device" />
+      <Param Type="char*" Name="password" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="ni62xx_CalAdjust">
+      <Param Type="INT16" Name="device" />
+      <Param Type="UINT32" Name="calMode" />
+      <Param Type="double*" Name="measuredData" />
+      <Param Type="INT16" Name="numOfValues" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="ni62xx_CalEnd">
+      <Param Type="INT16" Name="device" />
+      <Param Type="UINT32" Name="calAction" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="ni62xx_SelfCalibrate">
+      <Param Type="INT16" Name="device" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CalFetchInternalReference">
+      <Param Type="INT16" Name="device" />
+      <Param Type="double*" Name="referenceValue" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CalChangePassword">
+      <Param Type="INT16" Name="device" />
+      <Param Type="char*" Name="oldPassword" />
+      <Param Type="char*" Name="newPassword" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CalFetchCount">
+      <Param Type="INT16" Name="device" />
+      <Param Type="UINT32" Name="calType" />
+      <Param Type="INT32*" Name="calCount" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CalFetchDate">
+      <Param Type="INT16" Name="device" />
+      <Param Type="UINT32" Name="calType" />
+      <Param Type="INT32*" Name="year" />
+      <Param Type="INT32*" Name="month" />
+      <Param Type="INT32*" Name="day" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CalFetchTemperature">
+      <Param Type="INT16" Name="device" />
+      <Param Type="UINT32" Name="calType" />
+      <Param Type="double*" Name="temperature" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CalFetchMiscInfo">
+      <Param Type="INT16" Name="device" />
+      <Param Type="char*" Name="miscInfo" />
+      <Return Type="INT16" />
+    </Api>
+
+    <Api Name="CalStoreMiscInfo">
+      <Param Type="INT16" Name="device" />
+      <Param Type="char*" Name="miscInfo" />
+      <Return Type="INT16" />
+    </Api>
+
+  </Module>
+</ApiMonitor>

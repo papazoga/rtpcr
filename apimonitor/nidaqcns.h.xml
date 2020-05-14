@@ -1,0 +1,729 @@
+<ApiMonitor>
+  <Include Filename="Headers\windows.h.xml" />
+  <Headers>
+    <!-- Omitted from common.h.xml -->
+    <Variable Name="INT16*" Type="Pointer"  Base="INT16" />
+
+    <!-- Giant enumerated type to caputure the NI-DAQ "symbols" -->
+    <Variable Name="NIDAQSymbol" Type="Alias" Base="UINT32">
+      <Display Name="UINT32" />
+      <Enum Reset="True">
+	<Set Name="ND_ABOVE_HIGH_LEVEL" Value="11020" />
+	<Set Name="ND_ABOVE_LEVEL_A" Value="11021" />
+	<Set Name="ND_ABOVE_LEVEL_A_HYSTERESIS" Value="11022" />
+	<Set Name="ND_AC" Value="11025" />
+	<Set Name="ND_ACK_REQ_EXCHANGE_GR1" Value="11030" />
+	<Set Name="ND_ACK_REQ_EXCHANGE_GR2" Value="11035" />
+	<Set Name="ND_ACTIVE" Value="11037" />
+	<Set Name="ND_ADC_RESOLUTION" Value="11040" />
+	<Set Name="ND_AI_CALDAC_COUNT" Value="11050" />
+	<Set Name="ND_AI_CHANNEL_COUNT" Value="11060" />
+	<Set Name="ND_AI_COUPLING" Value="11055" />
+	<Set Name="ND_AI_FIFO_INTERRUPTS" Value="11600" />
+	<Set Name="ND_ANALOG_FILTER" Value="11065" />
+	<Set Name="ND_AO48XDC_SET_POWERUP_STATE" Value="42100" />
+	<Set Name="ND_AO_CALDAC_COUNT" Value="11070" />
+	<Set Name="ND_AO_CHANNEL_COUNT" Value="11080" />
+	<Set Name="ND_AO_EXT_REF_CAPABLE" Value="11090" />
+	<Set Name="ND_AO_UNIPOLAR_CAPABLE" Value="11095" />
+	<Set Name="ND_ARM" Value="11100" />
+	<Set Name="ND_ARMED" Value="11200" />
+	<Set Name="ND_ATC_OUT" Value="11250" />
+	<Set Name="ND_ATTENUATION" Value="11260" />
+	<Set Name="ND_AUTOINCREMENT_COUNT" Value="11300" />
+	<Set Name="ND_AUTOMATIC" Value="11400" />
+	<Set Name="ND_AVAILABLE_POINTS" Value="11500" />
+
+	<Set Name="ND_BASE_ADDRESS" Value="12100" />
+	<Set Name="ND_BELOW_LEVEL_A" Value="12110" />
+	<Set Name="ND_BELOW_LEVEL_A_HYSTERESIS" Value="12115" />
+	<Set Name="ND_BELOW_LOW_LEVEL" Value="12130" />
+	<Set Name="ND_BETWEEN_LEVEL_A_LEVEL_B" Value="12135" />
+	<Set Name="ND_BOARD_CLOCK" Value="12170" />
+	<Set Name="ND_BUFFERED_EVENT_CNT" Value="12200" />
+	<Set Name="ND_BUFFERED_PERIOD_MSR" Value="12300" />
+	<Set Name="ND_BUFFERED_PULSE_WIDTH_MSR" Value="12400" />
+	<Set Name="ND_BUFFERED_SEMI_PERIOD_MSR" Value="12500" />
+	<Set Name="ND_BURST" Value="12600" />
+	<Set Name="ND_BURST_INTERVAL" Value="12700" />
+
+	<Set Name="ND_CAL_CONST_AUTO_LOAD" Value="13050" />
+	<Set Name="ND_CALIBRATION_ENABLE" Value="13055" />
+	<Set Name="ND_CALIBRATION_FRAME_SIZE" Value="13060" />
+	<Set Name="ND_CALIBRATION_FRAME_PTR" Value="13065" />
+	<Set Name="ND_CLEAN_UP" Value="13100" />
+	<Set Name="ND_CLOCK_REVERSE_MODE_GR1" Value="13120" />
+	<Set Name="ND_CLOCK_REVERSE_MODE_GR2" Value="13130" />
+	<Set Name="ND_CONFIG_MEMORY_SIZE" Value="13150" />
+	<Set Name="ND_CONTINUOUS" Value="13160" />
+	<Set Name="ND_COUNT" Value="13200" />
+
+	<Set Name="ND_COUNTER_0" Value="13300" />
+	<Set Name="ND_COUNTER_1" Value="13400" />
+	<Set Name="ND_COUNTER_2" Value="13310" />
+	<Set Name="ND_COUNTER_3" Value="13320" />
+	<Set Name="ND_COUNTER_4" Value="13330" />
+	<Set Name="ND_COUNTER_5" Value="13340" />
+	<Set Name="ND_COUNTER_6" Value="13350" />
+	<Set Name="ND_COUNTER_7" Value="13360" />
+
+	<Set Name="ND_COUNTER_1_SOURCE" Value="13430" />
+	<Set Name="ND_COUNT_AVAILABLE" Value="13450" />
+	<Set Name="ND_COUNT_DOWN" Value="13465" />
+	<Set Name="ND_COUNT_UP" Value="13485" />
+	<Set Name="ND_COUNT_1" Value="13500" />
+	<Set Name="ND_COUNT_2" Value="13600" />
+	<Set Name="ND_COUNT_3" Value="13700" />
+	<Set Name="ND_COUNT_4" Value="13800" />
+	<Set Name="ND_CURRENT_OUTPUT" Value="40200" />
+
+	<Set Name="ND_DAC_RESOLUTION" Value="13950" />
+	<Set Name="ND_DATA_TRANSFER_CONDITION" Value="13960" />
+	<Set Name="ND_DATA_XFER_MODE_AI" Value="14000" />
+	<Set Name="ND_DATA_XFER_MODE_AO_GR1" Value="14100" />
+	<Set Name="ND_DATA_XFER_MODE_AO_GR2" Value="14200" />
+	<Set Name="ND_DATA_XFER_MODE_DIO_GR1" Value="14300" />
+	<Set Name="ND_DATA_XFER_MODE_DIO_GR2" Value="14400" />
+	<Set Name="ND_DATA_XFER_MODE_DIO_GR3" Value="14500" />
+	<Set Name="ND_DATA_XFER_MODE_DIO_GR4" Value="14600" />
+	<Set Name="ND_DATA_XFER_MODE_DIO_GR5" Value="14700" />
+	<Set Name="ND_DATA_XFER_MODE_DIO_GR6" Value="14800" />
+	<Set Name="ND_DATA_XFER_MODE_DIO_GR7" Value="14900" />
+	<Set Name="ND_DATA_XFER_MODE_DIO_GR8" Value="15000" />
+
+	<Set Name="ND_DATA_XFER_MODE_GPCTR0" Value="15100" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR1" Value="15200" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR2" Value="15110" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR3" Value="15120" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR4" Value="15130" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR5" Value="15140" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR6" Value="15150" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR7" Value="15160" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR8" Value="15165" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR9" Value="15170" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR10" Value="15175" />
+	<Set Name="ND_DATA_XFER_MODE_GPCTR11" Value="15180" />
+
+	<Set Name="ND_DC" Value="15250" />
+	<Set Name="ND_DDS_BUFFER_SIZE" Value="15255" />
+	<Set Name="ND_DEVICE_NAME" Value="15260" />
+	<Set Name="ND_DEVICE_POWER" Value="15270" />
+	<Set Name="ND_DEVICE_SERIAL_NUMBER" Value="15280" />
+	<Set Name="ND_DEVICE_STATE_DURING_SUSPEND_MODE" Value="15290" />
+	<Set Name="ND_DEVICE_TYPE_CODE" Value="15300" />
+	<Set Name="ND_DIGITAL_FILTER" Value="15350" />
+	<Set Name="ND_DIGITAL_RESTART" Value="15375" />
+	<Set Name="ND_DIO128_GET_PORT_THRESHOLD" Value="41200" />
+	<Set Name="ND_DIO128_SELECT_INPUT_PORT" Value="41100" />
+	<Set Name="ND_DIO128_SET_PORT_THRESHOLD" Value="41300" />
+	<Set Name="ND_DISABLED" Value="15400" />
+	<Set Name="ND_DISARM" Value="15450" />
+	<Set Name="ND_DIVIDE_DOWN_SAMPLING_SUPPORTED" Value="15475" />
+	<Set Name="ND_DMA_A_LEVEL" Value="15500" />
+	<Set Name="ND_DMA_B_LEVEL" Value="15600" />
+	<Set Name="ND_DMA_C_LEVEL" Value="15700" />
+	<Set Name="ND_DONE" Value="15800" />
+	<Set Name="ND_DONT_CARE" Value="15900" />
+	<Set Name="ND_DONT_KNOW" Value="15950" />
+
+	<Set Name="ND_EDGE_SENSITIVE" Value="16000" />
+	<Set Name="ND_ENABLED" Value="16050" />
+	<Set Name="ND_END" Value="16055" />
+	<Set Name="ND_EXTERNAL" Value="16060" />
+	<Set Name="ND_EXTERNAL_CALIBRATE" Value="16100" />
+
+	<Set Name="ND_FACTORY_CALIBRATION_EQUIP" Value="16210" />
+	<Set Name="ND_FACTORY_EEPROM_AREA" Value="16220" />
+	<Set Name="ND_FIFO_EMPTY" Value="16230" />
+	<Set Name="ND_FIFO_HALF_FULL_OR_LESS" Value="16240" />
+	<Set Name="ND_FIFO_HALF_FULL_OR_LESS_UNTIL_FULL" Value="16245" />
+	<Set Name="ND_FIFO_NOT_FULL" Value="16250" />
+	<Set Name="ND_FIFO_TRANSFER_COUNT" Value="16260" />
+	<Set Name="ND_FILTER_CORRECTION_FREQ" Value="16300" />
+	<Set Name="ND_FOREGROUND" Value="16350" />
+	<Set Name="ND_FREQ_OUT" Value="16400" />
+	<Set Name="ND_FSK" Value="16500" />
+	<Set Name="ND_EDGE_BASED_FSK" Value="16500" />
+
+	<Set Name="ND_GATE" Value="17100" />
+	<Set Name="ND_GATE_POLARITY" Value="17200" />
+
+	<Set Name="ND_GPCTR0_GATE" Value="17300" />
+	<Set Name="ND_GPCTR0_OUTPUT" Value="17400" />
+	<Set Name="ND_GPCTR0_SOURCE" Value="17500" />
+
+	<Set Name="ND_GPCTR1_GATE" Value="17600" />
+	<Set Name="ND_GPCTR1_OUTPUT" Value="17700" />
+	<Set Name="ND_GPCTR1_SOURCE" Value="17800" />
+
+	<Set Name="ND_GPCTR2_GATE" Value="17320" />
+	<Set Name="ND_GPCTR2_OUTPUT" Value="17420" />
+	<Set Name="ND_GPCTR2_SOURCE" Value="17520" />
+
+	<Set Name="ND_GPCTR3_GATE" Value="17330" />
+	<Set Name="ND_GPCTR3_OUTPUT" Value="17430" />
+	<Set Name="ND_GPCTR3_SOURCE" Value="17530" />
+
+	<Set Name="ND_GPCTR4_GATE" Value="17340" />
+	<Set Name="ND_GPCTR4_OUTPUT" Value="17440" />
+	<Set Name="ND_GPCTR4_SOURCE" Value="17540" />
+
+	<Set Name="ND_GPCTR5_GATE" Value="17350" />
+	<Set Name="ND_GPCTR5_OUTPUT" Value="17450" />
+	<Set Name="ND_GPCTR5_SOURCE" Value="17550" />
+
+	<Set Name="ND_GPCTR6_GATE" Value="17360" />
+	<Set Name="ND_GPCTR6_OUTPUT" Value="17460" />
+	<Set Name="ND_GPCTR6_SOURCE" Value="17660" />
+
+	<Set Name="ND_GPCTR7_GATE" Value="17370" />
+	<Set Name="ND_GPCTR7_OUTPUT" Value="17470" />
+	<Set Name="ND_GPCTR7_SOURCE" Value="17570" />
+
+
+
+
+
+	<Set Name="ND_GROUND_DAC_REFERENCE" Value="17900" />
+
+	<Set Name="ND_HARDWARE" Value="18000" />
+	<Set Name="ND_HI_RES_SAMPLING" Value="18020" />
+	<Set Name="ND_HIGH" Value="18050" />
+	<Set Name="ND_HIGH_HYSTERESIS" Value="18080" />
+	<Set Name="ND_HIGH_TO_LOW" Value="18100" />
+	<Set Name="ND_HW_ANALOG_TRIGGER" Value="18900" />
+
+	<Set Name="ND_IMPEDANCE" Value="19000" />
+	<Set Name="ND_INACTIVE" Value="19010" />
+	<Set Name="ND_INITIAL_COUNT" Value="19100" />
+	<Set Name="ND_INIT_PLUGPLAY_DEVICES" Value="19110" />
+	<Set Name="ND_INSIDE_REGION" Value="19150" />
+	<Set Name="ND_INTERNAL" Value="19160" />
+	<Set Name="ND_INTERNAL_100_KHZ" Value="19200" />
+	<Set Name="ND_INTERNAL_10_MHZ" Value="19300" />
+	<Set Name="ND_INTERNAL_1250_KHZ" Value="19320" />
+	<Set Name="ND_INTERNAL_20_MHZ" Value="19400" />
+	<Set Name="ND_INTERNAL_25_MHZ" Value="19410" />
+	<Set Name="ND_INTERNAL_2500_KHZ" Value="19420" />
+	<Set Name="ND_INTERNAL_5_MHZ" Value="19450" />
+	<Set Name="ND_INTERNAL_7160_KHZ" Value="19460" />
+	<Set Name="ND_INTERNAL_TIMER" Value="19500" />
+	<Set Name="ND_INTERRUPTS" Value="19600" />
+	<Set Name="ND_INTERRUPT_A_LEVEL" Value="19700" />
+	<Set Name="ND_INTERRUPT_B_LEVEL" Value="19800" />
+	<Set Name="ND_INTERRUPT_TRIGGER_MODE" Value="19850" />
+	<Set Name="ND_IN_CHANNEL_CLOCK_TIMEBASE" Value="19900" />
+	<Set Name="ND_IN_CHANNEL_CLOCK_TB_POL" Value="20000" />
+	<Set Name="ND_IN_CONVERT" Value="20100" />
+	<Set Name="ND_IN_CONVERT_POL" Value="20200" />
+	<Set Name="ND_IN_DATA_FIFO_SIZE" Value="20250" />
+	<Set Name="ND_IN_EXTERNAL_GATE" Value="20300" />
+	<Set Name="ND_IN_EXTERNAL_GATE_POL" Value="20400" />
+	<Set Name="ND_IN_SCAN_CLOCK_TIMEBASE" Value="20500" />
+	<Set Name="ND_IN_SCAN_CLOCK_TB_POL" Value="20600" />
+	<Set Name="ND_IN_SCAN_IN_PROG" Value="20650" />
+	<Set Name="ND_IN_SCAN_START" Value="20700" />
+	<Set Name="ND_IN_SCAN_START_POL" Value="20800" />
+	<Set Name="ND_IN_START_TRIGGER" Value="20900" />
+	<Set Name="ND_IN_START_TRIGGER_POL" Value="21000" />
+	<Set Name="ND_IN_STOP_TRIGGER" Value="21100" />
+	<Set Name="ND_IN_STOP_TRIGGER_POL" Value="21200" />
+	<Set Name="ND_INT_AI_GND" Value="21210" />
+	<Set Name="ND_INT_AO_CH_0" Value="21230" />
+	<Set Name="ND_INT_AO_CH_0_VS_REF_5V" Value="21235" />
+	<Set Name="ND_INT_AO_CH_1" Value="21240" />
+	<Set Name="ND_INT_AO_CH_1_VS_AO_CH_0" Value="21245" />
+	<Set Name="ND_INT_AO_CH_1_VS_REF_5V" Value="21250" />
+	<Set Name="ND_INT_AO_CH_2" Value="21220" />
+	<Set Name="ND_INT_AO_CH_3" Value="21221" />
+	<Set Name="ND_INT_AO_CH_4" Value="21222" />
+	<Set Name="ND_INT_AO_CH_5" Value="21223" />
+	<Set Name="ND_INT_AO_CH_6" Value="21224" />
+	<Set Name="ND_INT_AO_CH_7" Value="21225" />
+	<Set Name="ND_INT_AO_GND" Value="21260" />
+	<Set Name="ND_INT_AO_GND_VS_AI_GND" Value="21265" />
+	<Set Name="ND_INT_CM_REF_5V" Value="21270" />
+	<Set Name="ND_INT_DEV_TEMP" Value="21280" />
+	<Set Name="ND_INT_REF_5V" Value="21290" />
+	<Set Name="ND_INT_REF_EXTERN" Value="21296" />
+	<Set Name="ND_INT_CAL_BUS" Value="21295" />
+	<Set Name="ND_INT_MUX_BUS" Value="21305" />
+
+	<Set Name="ND_INT_AI_GND_AMP_0" Value="21211" />
+	<Set Name="ND_INT_AI_GND_AMP_1" Value="21212" />
+	<Set Name="ND_INT_AI_GND_AMP_2" Value="21213" />
+	<Set Name="ND_INT_AI_GND_AMP_3" Value="21214" />
+	<Set Name="ND_INT_AI_GND_AMP_4" Value="21215" />
+	<Set Name="ND_INT_AI_GND_AMP_5" Value="21216" />
+	<Set Name="ND_INT_AI_GND_AMP_6" Value="21217" />
+	<Set Name="ND_INT_AI_GND_AMP_7" Value="21218" />
+
+	<Set Name="ND_INT_AO_CH_0_AMP_0" Value="21231" />
+	<Set Name="ND_INT_AO_CH_0_AMP_1" Value="21232" />
+	<Set Name="ND_INT_AO_CH_0_AMP_2" Value="21233" />
+	<Set Name="ND_INT_AO_CH_0_AMP_3" Value="21234" />
+	<Set Name="ND_INT_AO_CH_1_AMP_0" Value="21241" />
+	<Set Name="ND_INT_AO_CH_1_AMP_1" Value="21242" />
+	<Set Name="ND_INT_AO_CH_1_AMP_2" Value="21243" />
+	<Set Name="ND_INT_AO_CH_1_AMP_3" Value="21244" />
+	<Set Name="ND_INT_AO_CH_0_VS_REF_AMP_0" Value="21236" />
+	<Set Name="ND_INT_AO_CH_0_VS_REF_AMP_1" Value="21237" />
+	<Set Name="ND_INT_AO_CH_0_VS_REF_AMP_2" Value="21238" />
+	<Set Name="ND_INT_AO_CH_0_VS_REF_AMP_3" Value="21239" />
+	<Set Name="ND_INT_AO_CH_1_VS_REF_AMP_0" Value="21251" />
+	<Set Name="ND_INT_AO_CH_1_VS_REF_AMP_1" Value="21252" />
+	<Set Name="ND_INT_AO_CH_1_VS_REF_AMP_2" Value="21253" />
+	<Set Name="ND_INT_AO_CH_1_VS_REF_AMP_3" Value="21254" />
+	<Set Name="ND_INT_AO_GND_VS_AI_GND_AMP_0" Value="21266" />
+	<Set Name="ND_INT_AO_GND_VS_AI_GND_AMP_1" Value="21267" />
+	<Set Name="ND_INT_AO_GND_VS_AI_GND_AMP_2" Value="21268" />
+	<Set Name="ND_INT_AO_GND_VS_AI_GND_AMP_3" Value="21269" />
+	<Set Name="ND_INT_CM_REF_AMP_0" Value="21271" />
+	<Set Name="ND_INT_CM_REF_AMP_1" Value="21272" />
+	<Set Name="ND_INT_CM_REF_AMP_2" Value="21273" />
+	<Set Name="ND_INT_CM_REF_AMP_3" Value="21274" />
+	<Set Name="ND_INT_REF_AMP_0" Value="21291" />
+	<Set Name="ND_INT_REF_AMP_1" Value="21292" />
+	<Set Name="ND_INT_REF_AMP_2" Value="21293" />
+	<Set Name="ND_INT_REF_AMP_3" Value="21294" />
+	<Set Name="ND_INT_REF_AMP_4" Value="21301" />
+	<Set Name="ND_INT_REF_AMP_5" Value="21302" />
+	<Set Name="ND_INT_REF_AMP_6" Value="21303" />
+	<Set Name="ND_INT_REF_AMP_7" Value="21304" />
+	<Set Name="ND_ROUTE_INT_REFERENCE" Value="21299" />
+
+	<Set Name="ND_INTERRUPT_EVERY_SAMPLE" Value="11700" />
+	<Set Name="ND_INTERRUPT_HALF_FIFO" Value="11800" />
+	<Set Name="ND_IO_CONNECTOR" Value="21300" />
+
+	<Set Name="ND_LEVEL_A" Value="21410" />
+	<Set Name="ND_LEVEL_B" Value="21420" />
+	<Set Name="ND_LEVEL_SENSITIVE" Value="24000" />
+	<Set Name="ND_LINK_COMPLETE_INTERRUPTS" Value="24010" />
+	<Set Name="ND_LOW" Value="24050" />
+	<Set Name="ND_LOW_HYSTERESIS" Value="24080" />
+	<Set Name="ND_LOW_TO_HIGH" Value="24100" />
+	<Set Name="ND_LPT_DEVICE_MODE" Value="24200" />
+
+	<Set Name="ND_MARKER" Value="24500" />
+	<Set Name="ND_MARKER_QUANTUM" Value="24550" />
+	<Set Name="ND_MAX_ARB_SEQUENCE_LENGTH" Value="24600" />
+	<Set Name="ND_MAX_FUNC_SEQUENCE_LENGTH" Value="24610" />
+	<Set Name="ND_MAX_LOOP_COUNT" Value="24620" />
+	<Set Name="ND_MAX_NUM_WAVEFORMS" Value="24630" />
+	<Set Name="ND_MAX_SAMPLE_RATE" Value="24640" />
+	<Set Name="ND_MAX_WFM_SIZE" Value="24650" />
+	<Set Name="ND_MEMORY_TRANSFER_WIDTH" Value="24700" />
+	<Set Name="ND_MIN_SAMPLE_RATE" Value="24800" />
+	<Set Name="ND_MIN_WFM_SIZE" Value="24810" />
+
+	<Set Name="ND_NEGATIVE" Value="26100" />
+	<Set Name="ND_NEW" Value="26190" />
+	<Set Name="ND_NI_DAQ_SW_AREA" Value="26195" />
+	<Set Name="ND_NO" Value="26200" />
+	<Set Name="ND_NO_STRAIN_GAUGE" Value="26225" />
+	<Set Name="ND_NO_TRACK_AND_HOLD" Value="26250" />
+	<Set Name="ND_NONE" Value="26300" />
+	<Set Name="ND_NOT_APPLICABLE" Value="26400" />
+	<Set Name="ND_NUMBER_DIG_PORTS" Value="26500" />
+
+	<Set Name="ND_OFF" Value="27010" />
+	<Set Name="ND_OFFSET" Value="27020" />
+	<Set Name="ND_ON" Value="27050" />
+	<Set Name="ND_OTHER" Value="27060" />
+	<Set Name="ND_OTHER_GPCTR_OUTPUT" Value="27300" />
+	<Set Name="ND_OTHER_GPCTR_TC" Value="27400" />
+	<Set Name="ND_OUTSIDE_LEVEL_A_LEVEL_B" Value="27065" />
+	<Set Name="ND_OUT_DATA_FIFO_SIZE" Value="27070" />
+	<Set Name="ND_OUT_EXTERNAL_GATE" Value="27080" />
+	<Set Name="ND_OUT_EXTERNAL_GATE_POL" Value="27082" />
+	<Set Name="ND_OUT_START_TRIGGER" Value="27100" />
+	<Set Name="ND_OUT_START_TRIGGER_POL" Value="27102" />
+	<Set Name="ND_OUT_UPDATE" Value="27200" />
+	<Set Name="ND_OUT_UPDATE_POL" Value="27202" />
+	<Set Name="ND_OUT_UPDATE_CLOCK_TIMEBASE" Value="27210" />
+	<Set Name="ND_OUT_UPDATE_CLOCK_TB_POL" Value="27212" />
+	<Set Name="ND_OUTPUT_ENABLE" Value="27220" />
+	<Set Name="ND_OUTPUT_MODE" Value="27230" />
+	<Set Name="ND_OUTPUT_POLARITY" Value="27240" />
+	<Set Name="ND_OUTPUT_STATE" Value="27250" />
+	<Set Name="ND_OUTPUT_TYPE" Value="40000" />
+
+	<Set Name="ND_DIGITAL_PATTERN_GENERATION" Value="28030" />
+	<Set Name="ND_PAUSE" Value="28040" />
+	<Set Name="ND_PAUSE_ON_HIGH" Value="28045" />
+	<Set Name="ND_PAUSE_ON_LOW" Value="28050" />
+	<Set Name="ND_PFI_0" Value="28100" />
+	<Set Name="ND_PFI_1" Value="28200" />
+	<Set Name="ND_PFI_2" Value="28300" />
+	<Set Name="ND_PFI_3" Value="28400" />
+	<Set Name="ND_PFI_4" Value="28500" />
+	<Set Name="ND_PFI_5" Value="28600" />
+	<Set Name="ND_PFI_6" Value="28700" />
+	<Set Name="ND_PFI_7" Value="28800" />
+	<Set Name="ND_PFI_8" Value="28900" />
+	<Set Name="ND_PFI_9" Value="29000" />
+	<Set Name="ND_PFI_10" Value="50280" />
+	<Set Name="ND_PFI_11" Value="50290" />
+	<Set Name="ND_PFI_12" Value="50300" />
+	<Set Name="ND_PFI_13" Value="50310" />
+	<Set Name="ND_PFI_14" Value="50320" />
+	<Set Name="ND_PFI_15" Value="50330" />
+	<Set Name="ND_PFI_16" Value="50340" />
+	<Set Name="ND_PFI_17" Value="50350" />
+	<Set Name="ND_PFI_18" Value="50360" />
+	<Set Name="ND_PFI_19" Value="50370" />
+	<Set Name="ND_PFI_20" Value="50380" />
+	<Set Name="ND_PFI_21" Value="50390" />
+	<Set Name="ND_PFI_22" Value="50400" />
+	<Set Name="ND_PFI_23" Value="50410" />
+	<Set Name="ND_PFI_24" Value="50420" />
+	<Set Name="ND_PFI_25" Value="50430" />
+	<Set Name="ND_PFI_26" Value="50440" />
+	<Set Name="ND_PFI_27" Value="50450" />
+	<Set Name="ND_PFI_28" Value="50460" />
+	<Set Name="ND_PFI_29" Value="50470" />
+	<Set Name="ND_PFI_30" Value="50480" />
+	<Set Name="ND_PFI_31" Value="50490" />
+	<Set Name="ND_PFI_32" Value="50500" />
+	<Set Name="ND_PFI_33" Value="50510" />
+	<Set Name="ND_PFI_34" Value="50520" />
+	<Set Name="ND_PFI_35" Value="50530" />
+	<Set Name="ND_PFI_36" Value="50540" />
+	<Set Name="ND_PFI_37" Value="50550" />
+	<Set Name="ND_PFI_38" Value="50560" />
+	<Set Name="ND_PFI_39" Value="50570" />
+
+	<Set Name="ND_PLL_REF_FREQ" Value="29010" />
+	<Set Name="ND_PLL_REF_SOURCE" Value="29020" />
+	<Set Name="ND_PRE_ARM" Value="29050" />
+	<Set Name="ND_POSITIVE" Value="29100" />
+	<Set Name="ND_PREPARE" Value="29200" />
+	<Set Name="ND_PROGRAM" Value="29300" />
+	<Set Name="ND_PULSE" Value="29350" />
+	<Set Name="ND_PULSE_SOURCE" Value="29500" />
+	<Set Name="ND_PULSE_TRAIN_GNR" Value="29600" />
+	<Set Name="ND_PXI_BACKPLANE_CLOCK" Value="29900" />
+
+	<Set Name="ND_REGLITCH" Value="31000" />
+	<Set Name="ND_RESERVED" Value="31100" />
+	<Set Name="ND_RESET" Value="31200" />
+	<Set Name="ND_RESUME" Value="31250" />
+	<Set Name="ND_RETRIG_PULSE_GNR" Value="31300" />
+	<Set Name="ND_REVISION" Value="31350" />
+	<Set Name="ND_RTSI_0" Value="31400" />
+	<Set Name="ND_RTSI_1" Value="31500" />
+	<Set Name="ND_RTSI_2" Value="31600" />
+	<Set Name="ND_RTSI_3" Value="31700" />
+	<Set Name="ND_RTSI_4" Value="31800" />
+	<Set Name="ND_RTSI_5" Value="31900" />
+	<Set Name="ND_RTSI_6" Value="32000" />
+	<Set Name="ND_RTSI_CLOCK" Value="32100" />
+	<Set Name="ND_PXI_STAR" Value="32200" />
+	<Set Name="ND_PXI_STAR_3" Value="32210" />
+	<Set Name="ND_PXI_STAR_4" Value="32220" />
+	<Set Name="ND_PXI_STAR_5" Value="32230" />
+	<Set Name="ND_PXI_STAR_6" Value="32240" />
+	<Set Name="ND_PXI_STAR_7" Value="32250" />
+	<Set Name="ND_PXI_STAR_8" Value="32260" />
+	<Set Name="ND_PXI_STAR_9" Value="32270" />
+	<Set Name="ND_PXI_STAR_10" Value="32280" />
+	<Set Name="ND_PXI_STAR_11" Value="32290" />
+	<Set Name="ND_PXI_STAR_12" Value="32300" />
+	<Set Name="ND_PXI_STAR_13" Value="32310" />
+	<Set Name="ND_PXI_STAR_14" Value="32320" />
+	<Set Name="ND_PXI_STAR_15" Value="32330" />
+
+	<Set Name="ND_SCANCLK" Value="32400" />
+	<Set Name="ND_SCANCLK_LINE" Value="32420" />
+	<Set Name="ND_SC_2040_MODE" Value="32500" />
+	<Set Name="ND_SC_2043_MODE" Value="32600" />
+	<Set Name="ND_SELF_CALIBRATE" Value="32700" />
+	<Set Name="ND_SET_DEFAULT_LOAD_AREA" Value="32800" />
+	<Set Name="ND_RESTORE_FACTORY_CALIBRATION" Value="32810" />
+	<Set Name="ND_SET_POWERUP_STATE" Value="42100" />
+	<Set Name="ND_SIGNAL_CONDITIONING_SPEC" Value="32900" />
+	<Set Name="ND_SIMPLE_EVENT_CNT" Value="33100" />
+	<Set Name="ND_SINGLE" Value="33150" />
+	<Set Name="ND_SINGLE_PERIOD_MSR" Value="33200" />
+	<Set Name="ND_SINGLE_PULSE_GNR" Value="33300" />
+	<Set Name="ND_SINGLE_PULSE_WIDTH_MSR" Value="33400" />
+	<Set Name="ND_SINGLE_TRIG_PULSE_GNR" Value="33500" />
+	<Set Name="ND_SOURCE" Value="33700" />
+	<Set Name="ND_SOURCE_POLARITY" Value="33800" />
+	<Set Name="ND_STABLE_10_MHZ" Value="33810" />
+	<Set Name="ND_STEPPED" Value="33825" />
+	<Set Name="ND_STRAIN_GAUGE" Value="33850" />
+	<Set Name="ND_STRAIN_GAUGE_EX0" Value="33875" />
+	<Set Name="ND_SUB_REVISION" Value="33900" />
+	<Set Name="ND_SYNC_DUTY_CYCLE_HIGH" Value="33930" />
+	<Set Name="ND_SYNC_OUT" Value="33970" />
+
+	<Set Name="ND_TC_REACHED" Value="34100" />
+	<Set Name="ND_THE_AI_CHANNEL" Value="34400" />
+	<Set Name="ND_TOGGLE" Value="34700" />
+	<Set Name="ND_TOGGLE_GATE" Value="34800" />
+	<Set Name="ND_TRACK_AND_HOLD" Value="34850" />
+	<Set Name="ND_TRIG_PULSE_WIDTH_MSR" Value="34900" />
+	<Set Name="ND_TRIGGER_SOURCE" Value="34930" />
+	<Set Name="ND_TRIGGER_MODE" Value="34970" />
+
+	<Set Name="ND_UI2_TC" Value="35100" />
+	<Set Name="ND_UP_DOWN" Value="35150" />
+	<Set Name="ND_UP_TO_1_DMA_CHANNEL" Value="35200" />
+	<Set Name="ND_UP_TO_2_DMA_CHANNELS" Value="35300" />
+	<Set Name="ND_USE_CAL_CHAN" Value="36000" />
+	<Set Name="ND_USE_AUX_CHAN" Value="36100" />
+	<Set Name="ND_USER_EEPROM_AREA" Value="37000" />
+	<Set Name="ND_USER_EEPROM_AREA_2" Value="37010" />
+	<Set Name="ND_USER_EEPROM_AREA_3" Value="37020" />
+	<Set Name="ND_USER_EEPROM_AREA_4" Value="37030" />
+	<Set Name="ND_USER_EEPROM_AREA_5" Value="37040" />
+
+	<Set Name="ND_DSA_RTSI_CLOCK_AD" Value="44000" />
+	<Set Name="ND_DSA_RTSI_CLOCK_DA" Value="44010" />
+	<Set Name="ND_DSA_OUTPUT_TRIGGER" Value="44020" />
+	<Set Name="ND_DSA_INPUT_TRIGGER" Value="44030" />
+	<Set Name="ND_DSA_SHARC_TRIGGER" Value="44040" />
+	<Set Name="ND_DSA_ANALOG_TRIGGER" Value="44050" />
+	<Set Name="ND_DSA_HOST_TRIGGER" Value="44060" />
+	<Set Name="ND_DSA_EXTERNAL_DIGITAL_TRIGGER" Value="44070" />
+	<Set Name="ND_DSA_EXCITATION" Value="44080" />
+
+	<Set Name="ND_VOLTAGE_OUTPUT" Value="40100" />
+	<Set Name="ND_VOLTAGE_REFERENCE" Value="38000" />
+
+	<Set Name="ND_VXIMIO_SET_ALLOCATE_MODE" Value="43100" />
+	<Set Name="ND_VXIMIO_USE_ONBOARD_MEMORY_AI" Value="43500" />
+	<Set Name="ND_VXIMIO_USE_ONBOARD_MEMORY_AO" Value="43600" />
+	<Set Name="ND_VXIMIO_USE_ONBOARD_MEMORY_GPCTR" Value="43700" />
+	<Set Name="ND_VXIMIO_USE_PC_MEMORY_AI" Value="43200" />
+	<Set Name="ND_VXIMIO_USE_PC_MEMORY_AO" Value="43300" />
+	<Set Name="ND_VXIMIO_USE_PC_MEMORY_GPCTR" Value="43400" />
+
+	<Set Name="ND_WFM_QUANTUM" Value="45000" />
+
+	<Set Name="ND_YES" Value="39100" />
+	<Set Name="ND_3V_LEVEL" Value="43450" />
+
+	<Set Name="ND_WRITE_MARK" Value="50000" />
+	<Set Name="ND_READ_MARK" Value="50010" />
+	<Set Name="ND_BUFFER_START" Value="50020" />
+	<Set Name="ND_TRIGGER_POINT" Value="50025" />
+	<Set Name="ND_BUFFER_MODE" Value="50030" />
+	<Set Name="ND_DOUBLE" Value="50050" />
+	<Set Name="ND_QUADRATURE_ENCODER_X1" Value="50070" />
+	<Set Name="ND_QUADRATURE_ENCODER_X2" Value="50080" />
+	<Set Name="ND_QUADRATURE_ENCODER_X4" Value="50090" />
+	<Set Name="ND_TWO_PULSE_COUNTING" Value="50100" />
+	<Set Name="ND_LINE_FILTER" Value="50110" />
+	<Set Name="ND_SYNCHRONIZATION" Value="50120" />
+	<Set Name="ND_5_MICROSECONDS" Value="50130" />
+	<Set Name="ND_1_MICROSECOND" Value="50140" />
+	<Set Name="ND_500_NANOSECONDS" Value="50150" />
+	<Set Name="ND_100_NANOSECONDS" Value="50160" />
+	<Set Name="ND_1_MILLISECOND" Value="50170" />
+	<Set Name="ND_10_MILLISECONDS" Value="50180" />
+	<Set Name="ND_100_MILLISECONDS" Value="50190" />
+
+
+	<Set Name="ND_OTHER_GPCTR_SOURCE" Value="50580" />
+	<Set Name="ND_OTHER_GPCTR_GATE" Value="50590" />
+	<Set Name="ND_AUX_LINE" Value="50600" />
+	<Set Name="ND_AUX_LINE_POLARITY" Value="50610" />
+	<Set Name="ND_TWO_SIGNAL_EDGE_SEPARATION_MSR" Value="50630" />
+	<Set Name="ND_BUFFERED_TWO_SIGNAL_EDGE_SEPARATION_MSR" Value="50640" />
+	<Set Name="ND_SWITCH_CYCLE" Value="50650" />
+	<Set Name="ND_INTERNAL_MAX_TIMEBASE" Value="50660" />
+	<Set Name="ND_PRESCALE_VALUE" Value="50670" />
+	<Set Name="ND_MAX_PRESCALE" Value="50690" />
+	<Set Name="ND_INTERNAL_LINE_0" Value="50710" />
+	<Set Name="ND_INTERNAL_LINE_1" Value="50720" />
+	<Set Name="ND_INTERNAL_LINE_2" Value="50730" />
+	<Set Name="ND_INTERNAL_LINE_3" Value="50740" />
+	<Set Name="ND_INTERNAL_LINE_4" Value="50750" />
+	<Set Name="ND_INTERNAL_LINE_5" Value="50760" />
+	<Set Name="ND_INTERNAL_LINE_6" Value="50770" />
+	<Set Name="ND_INTERNAL_LINE_7" Value="50780" />
+	<Set Name="ND_INTERNAL_LINE_8" Value="50790" />
+	<Set Name="ND_INTERNAL_LINE_9" Value="50800" />
+	<Set Name="ND_INTERNAL_LINE_10" Value="50810" />
+	<Set Name="ND_INTERNAL_LINE_11" Value="50820" />
+	<Set Name="ND_INTERNAL_LINE_12" Value="50830" />
+	<Set Name="ND_INTERNAL_LINE_13" Value="50840" />
+	<Set Name="ND_INTERNAL_LINE_14" Value="50850" />
+	<Set Name="ND_INTERNAL_LINE_15" Value="50860" />
+	<Set Name="ND_INTERNAL_LINE_16" Value="50862" />
+	<Set Name="ND_INTERNAL_LINE_17" Value="50864" />
+	<Set Name="ND_INTERNAL_LINE_18" Value="50866" />
+	<Set Name="ND_INTERNAL_LINE_19" Value="50868" />
+	<Set Name="ND_INTERNAL_LINE_20" Value="50870" />
+	<Set Name="ND_INTERNAL_LINE_21" Value="50872" />
+	<Set Name="ND_INTERNAL_LINE_22" Value="50874" />
+	<Set Name="ND_INTERNAL_LINE_23" Value="50876" />
+
+
+
+
+
+	<Set Name="ND_START_TRIGGER" Value="51150" />
+	<Set Name="ND_START_TRIGGER_POLARITY" Value="51151" />
+
+
+
+	<Set Name="ND_COUNTING_SYNCHRONOUS" Value="51200" />
+	<Set Name="ND_SYNCHRONOUS" Value="51210" />
+	<Set Name="ND_ASYNCHRONOUS" Value="51220" />
+	<Set Name="ND_CONFIGURABLE_FILTER" Value="51230" />
+	<Set Name="ND_ENCODER_TYPE" Value="51240" />
+	<Set Name="ND_Z_INDEX_ACTIVE" Value="51250" />
+	<Set Name="ND_Z_INDEX_VALUE" Value="51260" />
+	<Set Name="ND_SNAPSHOT" Value="51270" />
+	<Set Name="ND_POSITION_MSR" Value="51280" />
+	<Set Name="ND_BUFFERED_POSITION_MSR" Value="51290" />
+	<Set Name="ND_SAVED_COUNT" Value="51300" />
+	<Set Name="ND_READ_MARK_H_SNAPSHOT" Value="51310" />
+	<Set Name="ND_READ_MARK_L_SNAPSHOT" Value="51320" />
+	<Set Name="ND_WRITE_MARK_H_SNAPSHOT" Value="51330" />
+	<Set Name="ND_WRITE_MARK_L_SNAPSHOT" Value="51340" />
+	<Set Name="ND_BACKLOG_H_SNAPSHOT" Value="51350" />
+	<Set Name="ND_BACKLOG_L_SNAPSHOT" Value="51360" />
+	<Set Name="ND_ARMED_SNAPSHOT" Value="51370" />
+	<Set Name="ND_EDGE_GATED_FSK" Value="51371" />
+	<Set Name="ND_SIMPLE_GATED_EVENT_CNT" Value="51372" />
+
+	<Set Name="ND_VIDEO_TYPE" Value="51380" />
+	<Set Name="ND_PAL_B" Value="51390" />
+	<Set Name="ND_PAL_G" Value="51400" />
+	<Set Name="ND_PAL_H" Value="51410" />
+	<Set Name="ND_PAL_I" Value="51420" />
+	<Set Name="ND_PAL_D" Value="51430" />
+	<Set Name="ND_PAL_N" Value="51440" />
+	<Set Name="ND_PAL_M" Value="51450" />
+	<Set Name="ND_NTSC_M" Value="51460" />
+	<Set Name="ND_COUNTER_TYPE" Value="51470" />
+	<Set Name="ND_NI_TIO" Value="51480" />
+	<Set Name="ND_AM9513" Value="51490" />
+	<Set Name="ND_STC" Value="51500" />
+	<Set Name="ND_8253" Value="51510" />
+	<Set Name="ND_A_HIGH_B_HIGH" Value="51520" />
+	<Set Name="ND_A_HIGH_B_LOW" Value="51530" />
+	<Set Name="ND_A_LOW_B_HIGH" Value="51540" />
+	<Set Name="ND_A_LOW_B_LOW" Value="51550" />
+	<Set Name="ND_Z_INDEX_RELOAD_PHASE" Value="51560" />
+	<Set Name="ND_UPDOWN_LINE" Value="51570" />
+	<Set Name="ND_DEFAULT" Value="51575" />
+	<Set Name="ND_DEFAULT_PFI_LINE" Value="51580" />
+	<Set Name="ND_BUFFER_SIZE" Value="51590" />
+	<Set Name="ND_ELEMENT_SIZE" Value="51600" />
+	<Set Name="ND_NUMBER_GP_COUNTERS" Value="51610" />
+	<Set Name="ND_BUFFERED_TIME_STAMPING" Value="51620" />
+	<Set Name="ND_TIME_0_DATA_32" Value="51630" />
+	<Set Name="ND_TIME_8_DATA_24" Value="51640" />
+	<Set Name="ND_TIME_16_DATA_16" Value="51650" />
+	<Set Name="ND_TIME_24_DATA_8" Value="51660" />
+	<Set Name="ND_TIME_32_DATA_32" Value="51670" />
+	<Set Name="ND_TIME_48_DATA_16" Value="51680" />
+	<Set Name="ND_ABSOLUTE" Value="51690" />
+	<Set Name="ND_RELATIVE" Value="51700" />
+	<Set Name="ND_TIME_DATA_SIZE" Value="51710" />
+	<Set Name="ND_TIME_FORMAT" Value="51720" />
+	<Set Name="ND_HALT_ON_OVERFLOW" Value="51730" />
+	<Set Name="ND_OVERLAY_RTSI_ON_PFI_LINES" Value="51740" />
+	<Set Name="ND_STOP_TRIGGER" Value="51750" />
+	<Set Name="ND_TS_INPUT_MODE" Value="51760" />
+	<Set Name="ND_BOTH_EDGES" Value="51770" />
+
+	<Set Name="ND_CLOCK_0" Value="51780" />
+	<Set Name="ND_CLOCK_1" Value="51790" />
+	<Set Name="ND_CLOCK_2" Value="51800" />
+	<Set Name="ND_CLOCK_3" Value="51810" />
+	<Set Name="ND_SYNCHRONIZATION_LINE" Value="51820" />
+	<Set Name="ND_TRANSFER_METHOD" Value="51830" />
+	<Set Name="ND_SECONDS" Value="51840" />
+	<Set Name="ND_PRECISION" Value="51850" />
+	<Set Name="ND_NANO_SECONDS" Value="51860" />
+	<Set Name="ND_SYNCHRONIZATION_METHOD" Value="51870" />
+	<Set Name="ND_PULSE_PER_SECOND" Value="51880" />
+	<Set Name="ND_IRIG_B" Value="51890" />
+	<Set Name="ND_SIMPLE_TIME_MSR" Value="51900" />
+	<Set Name="ND_SINGLE_TIME_MSR" Value="51910" />
+	<Set Name="ND_BUFFERED_TIME_MSR" Value="51920" />
+	<Set Name="ND_DMA" Value="51930" />
+	<Set Name="ND_INTERNAL_SYNCHRONIZATION" Value="51940" />
+	<Set Name="ND_INITIAL_SECONDS" Value="51950" />
+	<Set Name="ND_INITIAL_SECONDS_ENABLE" Value="51951" />
+	<Set Name="ND_EXTERNAL_CALIBRATION" Value="51990" />
+	<Set Name="ND_INTERNAL_CALIBRATION" Value="51200" />
+	<Set Name="ND_ABORT_CALIBRATION" Value="51210" />
+	<Set Name="ND_STORE_CALIBRATION" Value="51220" />
+
+	<Set Name="ND_MEASUREMENT_MODE" Value="51230" />
+	<Set Name="ND_CURRENT" Value="51240" />
+	<Set Name="ND_FREQUENCY" Value="52250" />
+	<Set Name="ND_VOLTAGE" Value="52260" />
+	<Set Name="ND_OHMS" Value="52270" />
+
+	<Set Name="ND_EXCITATION_CURRENT" Value="52280" />
+	<Set Name="ND_FREQ_STARTING_EDGE" Value="52290" />
+	<Set Name="ND_FREQ_TRIG_LOW" Value="52300" />
+	<Set Name="ND_FREQ_TRIG_HIGH" Value="52310" />
+	<Set Name="ND_FREQ_NUM_OF_CYCLES" Value="52320" />
+	<Set Name="ND_FREQ_TIME_BASE" Value="52330" />
+	<Set Name="ND_FREQ_LOW_LIMIT" Value="52340" />
+
+	<Set Name="ND_AVERAGING_NUM_OF_SAMPLES" Value="52350" />
+	<Set Name="ND_AVERAGING_FREQUENCY" Value="52360" />
+	<Set Name="ND_OFFSET_COMP_MODE" Value="52370" />
+
+	<Set Name="ND_DIGITAL_LINE" Value="52380" />
+	<Set Name="ND_DIGITAL_PORT" Value="52390" />
+	<Set Name="ND_GPCTR0_UP_DOWN" Value="52400" />
+	<Set Name="ND_GPCTR1_UP_DOWN" Value="52410" />
+	<Set Name="ND_DIGITAL_LINE_0" Value="52420" />
+	<Set Name="ND_DIGITAL_LINE_1" Value="52430" />
+	<Set Name="ND_DIGITAL_LINE_2" Value="52440" />
+	<Set Name="ND_DIGITAL_LINE_3" Value="52450" />
+	<Set Name="ND_DIGITAL_LINE_4" Value="52460" />
+	<Set Name="ND_DIGITAL_LINE_5" Value="52470" />
+	<Set Name="ND_DIGITAL_LINE_6" Value="52480" />
+	<Set Name="ND_DIGITAL_LINE_7" Value="52490" />
+	<Set Name="ND_SCARAB_A_MEMORY_SIZE" Value="52510" />
+	<Set Name="ND_SCARAB_B_MEMORY_SIZE" Value="52520" />
+	<Set Name="ND_PATTERN_GENERATION_LOOP_ENABLE" Value="52530" />
+	<Set Name="ND_MEASUREMENT_TYPE" Value="52540" />
+	<Set Name="ND_DIFFERENTIAL" Value="52550" />
+	<Set Name="ND_NRSE" Value="52560" />
+	<Set Name="ND_4WIRE" Value="52570" />
+	<Set Name="ND_READ_MARK_H_SNAPSHOT_GR1" Value="52580" />
+	<Set Name="ND_READ_MARK_L_SNAPSHOT_GR1" Value="52590" />
+	<Set Name="ND_READ_MARK_H_SNAPSHOT_GR2" Value="52600" />
+	<Set Name="ND_READ_MARK_L_SNAPSHOT_GR2" Value="52610" />
+	<Set Name="ND_WRITE_MARK_H_SNAPSHOT_GR1" Value="52620" />
+	<Set Name="ND_WRITE_MARK_L_SNAPSHOT_GR1" Value="52630" />
+	<Set Name="ND_WRITE_MARK_H_SNAPSHOT_GR2" Value="52640" />
+	<Set Name="ND_WRITE_MARK_L_SNAPSHOT_GR2" Value="52650" />
+
+	<Set Name="ND_PARAM_SCXI_SETTLING_TIME" Value="52710" />
+	<Set Name="ND_PARAM_USER_DEFINED_SETTLING_TIME" Value="52720" />
+	<Set Name="ND_PARAM_SCXI_SCAN_INFO" Value="52730" />
+	<Set Name="ND_PARAM_SCXI_MODULE_CODE" Value="52740" />
+	<Set Name="ND_PARAM_SCXI_DUMMY" Value="52750" />
+	<Set Name="ND_PARAM_CHANNEL_NAME" Value="52760" />
+	<Set Name="ND_PARAM_TASKID" Value="52770" />
+	<Set Name="ND_PARAM_CJC" Value="52780" />
+	<Set Name="ND_PARAM_CHANNEL_CLOCK_TIMEBASE" Value="52790" />
+	<Set Name="ND_PARAM_CHANNEL_CLOCK_INTERVAL" Value="52800" />
+	<Set Name="ND_PARAM_CHANNEL_CLOCK_FREQUENCY" Value="52810" />
+	<Set Name="ND_PARAM_CHANNEL_CLOCK_SOURCE" Value="52820" />
+	<Set Name="ND_PARAM_CHANNEL_CLOCK_DEFAULT" Value="52830" />
+	<Set Name="ND_PARAM_SCAN_CLOCK_TIMEBASE" Value="52840" />
+	<Set Name="ND_PARAM_SCAN_CLOCK_INTERVAL" Value="52850" />
+	<Set Name="ND_PARAM_SCAN_CLOCK_FREQUENCY" Value="52860" />
+	<Set Name="ND_PARAM_SCAN_CLOCK_SOURCE" Value="52870" />
+	<Set Name="ND_PARAM_SCAN_CLOCK_DEFAULT" Value="52880" />
+	<Set Name="ND_PARAM_NUM_CHANNELS" Value="52890" />
+      </Enum>
+    </Variable>
+  </Headers>
+</ApiMonitor>
